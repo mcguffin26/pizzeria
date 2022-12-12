@@ -20,3 +20,10 @@ class Comments(models.Model):
 class Pizza_Pic(models.Model):
     pic = models.ForeignKey(Pizza, on_delete = models.CASCADE)
     pic_file = models.ImageField(null = True)
+
+class Toppings(models.Model):
+    pizza = models.ForeignKey(Pizza, on_delete = models.CASCADE)
+    toppings_name = models.CharField(max_length = 50)
+
+    def __str__(self):
+        return self.toppings_name
