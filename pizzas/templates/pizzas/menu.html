@@ -1,0 +1,21 @@
+{% extends "pizzas/base.html" %}
+
+{% block content %}
+
+<p style="font-size:32px;"> Our favorites: </p>
+
+<ul>
+    {% for item in all_menu %}
+
+    <li> 
+        <a href="{% url 'pizzas:item' item.id %}"> {{ item }} </a>
+    </li>
+
+    {% empty %}
+
+    <li> No pizzas have been added yet.</li>
+    
+    {% endfor %}
+</ul>
+
+{% endblock content %}
